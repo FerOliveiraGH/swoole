@@ -1,0 +1,19 @@
+{
+    "name": "fernando/swoole",
+    "autoload": {
+        "psr-4": {
+            "Fernando\\Swoole\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fernando Oliveira",
+            "email": "contato@feroliveira.com.br"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "swoole/ide-helper": "^5.0",
+        "guzzlehttp/guzzle": "^7.8"
+    }
+}
