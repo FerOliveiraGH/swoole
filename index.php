@@ -30,12 +30,13 @@ $http->on('request', function (Request $request, Response $response) {
             go(function () use ($key, $user, $channelTodos) {
                 echo "Todos$key" . PHP_EOL;
                 $todos = json_decode((new AppController())->getUserTodos($user['id']), true);
-                $channelTodos->push($todos);
+                $channelTodos->push(['key' => $key, 'value' => $todos]);
             });
         }
 
         for ($x=0; $x < $channelTodos->capacity; $x++) {
-            $users[$x]['todos'] = $channelTodos->pop();
+            $todos = $channelTodos->pop();
+            $users[$todos['key']]['todos'] = $todos['value'];
         }
 
         $channel->push(['users' => $users]);
